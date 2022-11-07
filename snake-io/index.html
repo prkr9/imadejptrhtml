@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <script id="gamedistribution-jssdk" src="//html5.api.gamedistridution.com/main.min.js"></script>
+    <script src="//www.google.com/jsapi"></script>
+    <script>window.parent.maeExportApis_();</script>
+
+
+    <base target="_top">
+</head>
+
+<body style="background-color:black">
+
+    <link rel="stylesheet" href="https://sites.google.com/site/allunblockedmovies/googlecss.css">
+    <script src="https://sites.google.com/site/unblockedhtmlgames/snakesUnityProgress.js"></script>
+    <script src="https://sites.google.com/site/unblockedhtmlgames/Snakesio.js"></script>
+
+    <script type="text/javascript">
+        var adInitialized = false;
+        var gameInstance = UnityLoader.instantiate("gameContainer", "https://www-sites-opensocial.googleusercontent.com/gadgets/proxy/container=enterprise/https://sites.google.com/site/unblockedhtmlgames/adddd.json", { onProgress: UnityProgress });
+        var showAdsCalled = false;
+        window["GD_OPTIONS"] = {
+            "gameId": "776fa37ed20743b18e38c4e6ecc178bf",
+            "advertisementSettings": {
+                "autoplay": false,
+            },
+            "onEvent": function (event) {
+                switch (event.name) {
+                    case "SDK_GAME_START":
+                        console.log("Game Resumed");
+                        if (showAdsCalled) {
+                            showAdsCalled = false;
+                            gameInstance.SendMessage('AdsManager', 'onAdServed');
+                            document.querySelector("canvas").focus();
+                        }
+                        break;
+                    case "SDK_GAME_PAUSE":
+                        console.log("Game Paused");
+
+                        break;
+                    case "SDK_READY":
+                        console.log("GD SDK Ready");
+                        adInitialized = true;
+                        break;
+                    case "SDK_ERROR":
+                        break;
+                }
+            },
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = '//html5.api.gamedistridution.com/main.min.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'gamedistribution-jssdk'));
+        function ShowAds() {
+            console.log("Show Ads Called");
+            if (adInitialized) {
+                showAdsCalled = true;
+                console.log("<Game Distribution> Show Ads Called");
+                window["gdsdk"]["showBanner"]();
+            }
+            else {
+                gameInstance.SendMessage('AdsManager', 'onAdServed');
+                document.querySelector("canvas").focus();
+            }
+        }
+
+    </script>
+
+    <div class="webgl-content">
+        <div id="gameContainer"
+            style="width: 800px; height: 660px; margin: 0px; padding: 0px; border: 0px; position: relative; background: rgb(35, 31, 32);">
+            <canvas id="#canvas" style="cursor: default;" width="800" height="660"></canvas>
+            <div class="logo Dark" style="display: none;"></div>
+            <div class="progress Dark" style="display: none;">
+                <div class="empty" style="width: 0%;"></div>
+                <div class="full" style="width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <center>
+        <div class="simmer">Blocky Snakes- <a href="https://sites.google.com/view/iogames" target="_blank">more io games
+                unblocked</a></div>
+        <center>
+
+
+
+
+
+        </center>
+    </center>
+    <script
+        src="blob:https://n-5y3l3jcaila5de5yebgm3e3fmlcgbxvavkix44a-0lu-script.googleusercontent.com/353b930d-ecc9-446e-b65e-8d93c7e9eda8"></script>
+</body>
+
+</html>
