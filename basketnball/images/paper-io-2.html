@@ -1,0 +1,87 @@
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            background-color: #102b07;
+        }
+
+        @font-face {
+            font-family: 'gameFont';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://www-sites-opensocial.googleusercontent.com/gadgets/proxy/refresh=3600&container=enterprise/https://sites.google.com/site/paperio3unblocked/assets/fnt/Square.ttf');
+        }
+    </style>
+
+
+    <title>Papers.io Mania</title>
+
+    <link rel="stylesheet" href="https://www-sites-opensocial.googleusercontent.com/gadgets/proxy/refresh=3600&container=enterprise/https://sites.google.com/site/paperio3unblocked/normalize.css" type="text/css">
+    <link rel="stylesheet" href="https://www-sites-opensocial.googleusercontent.com/gadgets/proxy/refresh=3600&container=enterprise/https://sites.google.com/site/paperio3unblocked/1game.css" type="text/css">
+
+
+</head>
+<body style="background-color: #000000">
+    <div id="wrongRotation">
+        <img src="https://www-sites-opensocial.googleusercontent.com/gadgets/proxy/refresh=3600&container=enterprise/https://sites.google.com/site/paperio3unblocked/assets/img_480/rotate_screen.png" alt=""/>
+    </div>
+
+
+    <div id="game">
+
+
+
+        <script src="https://www-sites-opensocial.googleusercontent.com/gadgets/proxy/refresh=3600&container=enterprise/https://sites.google.com/site/paperio3unblocked/game.js"></script>
+        
+
+        <script>
+            document.addEventListener("deviceready", function () {
+                document.addEventListener("backbutton", function () {
+                    //  quit
+                    //  lost progress
+                    if (grpSceneInfoDialog.visible) {
+                        SceneInfoDialog.instance.OnPressedNo();
+                    } else
+                    //  pause
+                    if (grpScenePause.visible) {
+                        ScenePause.instance.OnPressedCloseDialog();
+                    } else
+                    //  game
+                    if (grpSceneCamera.visible) {
+                        SceneCamera.instance.OnPressedPause();
+                    } else
+                    //  settings
+                    if (grpSceneSettings.visible) {
+                        SceneSettings.instance.OnPressedCloseDialog();
+                    } else
+                    //  instructions
+                    if (grpSceneInstruction.visible) {
+                        SceneInstruction.instance.cancelInstruction();
+                    } else
+                    //  about
+                    if (grpSceneAbout.visible) {
+                        SceneAbout.instance.cancelAbout();
+                    } else
+                    //  menu
+                    //  result
+                    if (grpSceneBasic.visible && !gameRunning) {
+                        quitAppDialog();
+                    }
+
+                }, false);
+            }, false);
+        </script>
+    </div>
+    <div class="font_preload" style="opacity: 0">
+        <span style="font-family: 'gameFont', Arial, normal;"></span>
+    </div>
+    <div id="ads"></div>
+
+</body>
+</html>
